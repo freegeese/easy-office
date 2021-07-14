@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.github.freegeese</groupId>
+    <artifactId>easy-office</artifactId>
+    <version>1.0.0-alpha0</version>
+    <packaging>pom</packaging>
+    <name>easy-office</name>
+
+    <description>easy-office</description>
+    <url>https://github.com/freegeese/easy-office</url>
+
+    <!-- 开源协议 -->
+    <licenses>
+        <license>
+            <name>The MIT License (MIT)</name>
+            <url>https://github.com/freegeese/easy-office/blob/main/LICENSE</url>
+        </license>
+    </licenses>
+
+    <!-- 开发者列表 -->
+    <developers>
+        <developer>
+            <name>zhangguangyong</name>
+            <email>1243610991@qq.com</email>
+        </developer>
+        <developer>
+            <name>蜗牛</name>
+            <email>510647180@qq.com</email>
+        </developer>
+        <developer>
+            <name>lixin901230</name>
+            <email>412506897@qq.com</email>
+        </developer>
+    </developers>
+
+    <!-- 软件配置 -->
+    <scm>
+        <connection>scm:https://github.com/freegeese/easy-office.git</connection>
+        <developerConnection>scm:https://github.com/freegeese/easy-office.git</developerConnection>
+        <url>https://github.com/freegeese/easy-office</url>
+    </scm>
+
+    <!-- 属性 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <requireMavenVersion>3.3.9</requireMavenVersion>
+        <requireJavaVersion>1.8</requireJavaVersion>
+
+        <spring-boot.version>2.5.0</spring-boot.version>
+        <spring.version>5.3.7</spring.version>
+
+        <freemarker.version>2.3.31</freemarker.version>
+        <guava.version>30.1.1-jre</guava.version>
+        <fastjson.version>1.2.76</fastjson.version>
+        <lombok.version>1.18.20</lombok.version>
+        <junit.version>5.8.0-M1</junit.version>
+        <slf4j.version>1.7.31</slf4j.version>
+        <docx4j.version>8.3.0</docx4j.version>
+        <aspose.version>21.6</aspose.version>
+
+
+        <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
+        <java-testdata-generator.version>1.1.2</java-testdata-generator.version>
+
+        <spring-boot-maven-plugin.version>2.5.1</spring-boot-maven-plugin.version>
+        <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
+        <maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
+        <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+        <maven-javadoc-plugin.version>3.3.0</maven-javadoc-plugin.version>
+        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+
+        <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
+        <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
+        <versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
+    </properties>
+
+    <!-- 依赖 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- import -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>java-testdata-generator</artifactId>
+                <version>${java-testdata-generator.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- docx4j -->
+            <dependency>
+                <groupId>org.docx4j</groupId>
+                <artifactId>docx4j-JAXB-Internal</artifactId>
+                <version>${docx4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.docx4j</groupId>
+                <artifactId>docx4j-JAXB-ReferenceImpl</artifactId>
+                <version>${docx4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.docx4j</groupId>
+                <artifactId>docx4j-JAXB-MOXy</artifactId>
+                <version>${docx4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.docx4j</groupId>
+                <artifactId>docx4j-export-fo</artifactId>
+                <version>${docx4j.version}</version>
+            </dependency>
+
+            <!-- aspose -->
+            <dependency>
+                <groupId>com.aspose</groupId>
+                <artifactId>aspose-words</artifactId>
+                <version>${aspose.version}</version>
+                <classifier>jdk17</classifier>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 构建 -->
+    <build>
+        <!-- 插件 -->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>${versions-maven-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>${maven-enforcer-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${maven-clean-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${maven-deploy-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>${maven-install-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven-javadoc-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven-source-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>${maven-gpg-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>${nexus-staging-maven-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <!-- 插件 -->
+        <plugins>
+            <!-- 统一环境插件 -->
+            <plugin>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforce-version</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>[${requireMavenVersion},)</version>
+                                </requireMavenVersion>
+                                <requireJavaVersion>
+                                    <version>[${requireJavaVersion},)</version>
+                                </requireJavaVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- 编译插件 -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <source>${requireJavaVersion}</source>
+                    <target>${requireJavaVersion}</target>
+                </configuration>
+            </plugin>
+            <!-- 源码 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+            </plugin>
+            <!-- 文档 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <configuration>
+                    <charset>UTF-8</charset>
+                    <encoding>UTF-8</encoding>
+                    <docencoding>UTF-8</docencoding>
+                    <doclint>none</doclint>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- 测试 -->
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <!-- 发布 -->
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+            </plugin>
+            <!-- 版本 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <!-- 发布(mvn -T 1C clean deploy -e -P release) -->
+            <id>release</id>
+
+            <!-- 配置插件 -->
+            <build>
+                <plugins>
+                    <!-- GPG -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- nexus-staging -->
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>oss</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+
+            <!-- 发布地址 -->
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>oss</id>
+                    <url>
+                        https://oss.sonatype.org/content/repositories/snapshots/
+                    </url>
+                </snapshotRepository>
+                <repository>
+                    <id>oss</id>
+                    <url>
+                        https://oss.sonatype.org/service/local/staging/deploy/maven2/
+                    </url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
+    <!--
+        修改版本
+        mvn versions:set -DnewVersion=1.0.0-alpha0 -DprocessAllModules=true -DallowSnapshots=true -DgenerateBackupPoms=false
+        发布
+        mvn -f deploy-pom.xml -T 1C clean deploy -e -P release
+    -->
+</project>
