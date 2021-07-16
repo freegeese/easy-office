@@ -5,12 +5,12 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.freegeese</groupId>
-    <artifactId>easy-office</artifactId>
+    <artifactId>easy-office-parent</artifactId>
     <version>1.0.0-alpha0</version>
     <packaging>pom</packaging>
-    <name>easy-office</name>
+    <name>easy-office-parent</name>
 
-    <description>easy-office</description>
+    <description>简单办公</description>
     <url>https://github.com/freegeese/easy-office</url>
 
     <!-- 开源协议 -->
@@ -411,4 +411,7 @@
         发布
         mvn -f deploy-pom.xml -T 1C clean deploy -e -P release
     -->
+    <modules>
+        <module>easy-office-word</module>
+    </modules>
 </project>
